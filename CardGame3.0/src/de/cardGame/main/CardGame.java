@@ -9,11 +9,11 @@ import java.util.TimerTask;
 
 import javax.swing.JFrame;
 
-import de.cardGame.GUI.StartScreenGUI;
 import de.cardGame.cards.Card;
-import de.cardGame.cards.Generate.CardGenDe;
-import de.cardGame.cards.Generate.CardGenEn;
-import de.cardGame.utils.Settings.Settings;
+import de.cardGame.cards.generate.CardGenDe;
+import de.cardGame.cards.generate.CardGenEn;
+import de.cardGame.gui.StartScreenGUI;
+import de.cardGame.utils.settings.Settings;
 
 
 public class CardGame {

@@ -1,7 +1,7 @@
 package de.cardGame.andereGames;
 
-import de.cardGame.andereGames.Utils.BOT;
-import de.cardGame.andereGames.Utils.Player;
+import de.cardGame.andereGames.utils.BOT;
+import de.cardGame.andereGames.utils.Player;
 
 public class Games {
 	

@@ -1,4 +1,4 @@
-package de.cardGame.utils.Sprachausgabe;
+package de.cardGame.utils.sprachausgabe;
 
 import java.io.IOException;
 import java.net.URL;
@@ -14,8 +14,8 @@ import javax.swing.JOptionPane;
 
 import de.cardGame.cards.Card;
 import de.cardGame.main.CardGame;
-import de.cardGame.utils.Words.WordTypes;
-import de.cardGame.utils.Words.Words;
+import de.cardGame.utils.words.WordTypes;
+import de.cardGame.utils.words.Words;
 
 public class SprachAusgabe {
 	

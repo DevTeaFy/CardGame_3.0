@@ -1,8 +1,8 @@
-package de.cardGame.utils.Settings;
+package de.cardGame.utils.settings;
 
-import de.cardGame.utils.Words.WordTypes;
-import de.cardGame.utils.Words.Words;
 import de.cardGame.utils.file.FileManager;
+import de.cardGame.utils.words.WordTypes;
+import de.cardGame.utils.words.Words;
 
 public class Settings {
 	

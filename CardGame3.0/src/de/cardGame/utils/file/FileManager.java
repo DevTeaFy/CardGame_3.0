@@ -8,7 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import de.cardGame.main.CardGame;
-import de.cardGame.utils.Settings.Settings;
+import de.cardGame.utils.settings.Settings;
 
 public class FileManager {
 

@@ -1,4 +1,4 @@
-package de.cardGame.GUI;
+package de.cardGame.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -19,12 +19,12 @@ import de.cardGame.andereGames.GamesGUI;
 import de.cardGame.cards.Card;
 import de.cardGame.main.CardGame;
 import de.cardGame.utils.StoppUhr;
-import de.cardGame.utils.Icons.IconManager;
-import de.cardGame.utils.Icons.IconPath;
-import de.cardGame.utils.Settings.Settings;
-import de.cardGame.utils.Sprachausgabe.TextType;
-import de.cardGame.utils.Words.WordTypes;
-import de.cardGame.utils.Words.Words;
+import de.cardGame.utils.icons.IconManager;
+import de.cardGame.utils.icons.IconPath;
+import de.cardGame.utils.settings.Settings;
+import de.cardGame.utils.sprachausgabe.TextType;
+import de.cardGame.utils.words.WordTypes;
+import de.cardGame.utils.words.Words;
 
 public class ProgrammedByGUI implements ActionListener {
 	

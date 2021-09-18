@@ -1,4 +1,4 @@
-package de.cardGame.GUI;
+package de.cardGame.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -26,12 +26,12 @@ import javax.swing.SwingConstants;
 import de.cardGame.cards.Card;
 import de.cardGame.main.CardGame;
 import de.cardGame.utils.StoppUhr;
-import de.cardGame.utils.Icons.IconManager;
-import de.cardGame.utils.Icons.IconPath;
-import de.cardGame.utils.Sprachausgabe.SprachAusgabe;
-import de.cardGame.utils.Sprachausgabe.TextType;
-import de.cardGame.utils.Words.WordTypes;
-import de.cardGame.utils.Words.Words;
+import de.cardGame.utils.icons.IconManager;
+import de.cardGame.utils.icons.IconPath;
+import de.cardGame.utils.sprachausgabe.SprachAusgabe;
+import de.cardGame.utils.sprachausgabe.TextType;
+import de.cardGame.utils.words.WordTypes;
+import de.cardGame.utils.words.Words;
 
 public class GameGUI implements ActionListener {
 
@@ -407,7 +407,7 @@ public class GameGUI implements ActionListener {
 			Words.choosenWayAnswer.add(TextType.Story);
 			StopSprachausgabeAsistent();
 			if (Abtn.getText().equalsIgnoreCase(Words.get(WordTypes.GameOver))) {
-				de.cardGame.utils.Settings.Settings.Cardback = 2;
+				de.cardGame.utils.settings.Settings.Cardback = 2;
 				Words.choosenWayID.add(Card.AktiveCardID);
 				Words.choosenWayAnswer.add(TextType.GameOver);
 				Words.choosenWay.add(
@@ -505,7 +505,7 @@ public class GameGUI implements ActionListener {
 		} else if (e.getSource() == CardPath) {
 			ShowCardPath();
 		} else if (e.getSource() == Startscreen) {
-			de.cardGame.utils.Settings.Settings.Cardback = 2;
+			de.cardGame.utils.settings.Settings.Cardback = 2;
 			StopSprachausgabeAsistent();
 			Words.choosenWayID.add(Card.AktiveCardID);
 			Words.choosenWayAnswer.add(TextType.GameOver);
@@ -526,8 +526,8 @@ public class GameGUI implements ActionListener {
 			StoppUhr.Stopp();
 			CardGame.setGUI(new SettingsGUI(null).getFrame());
 		} else if (e.getSource() == PageBack) {
-			if(de.cardGame.utils.Settings.Settings.Cardback <= 2 && de.cardGame.utils.Settings.Settings.Cardback >= 1) {
-				de.cardGame.utils.Settings.Settings.Cardback--;
+			if(de.cardGame.utils.settings.Settings.Cardback <= 2 && de.cardGame.utils.settings.Settings.Cardback >= 1) {
+				de.cardGame.utils.settings.Settings.Cardback--;
 				StopSprachausgabeAsistent();
 					if (Words.choosenWay.size() >= 1) {
 						setCardText(Words.choosenWayID.get((Words.choosenWayID.size() - 1)));

@@ -18,13 +18,13 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import de.cardGame.andereGames.GamesGUI;
-import de.cardGame.andereGames.Utils.BOT;
-import de.cardGame.andereGames.Utils.Player;
+import de.cardGame.andereGames.utils.BOT;
+import de.cardGame.andereGames.utils.Player;
 import de.cardGame.main.CardGame;
-import de.cardGame.utils.Icons.IconManager;
-import de.cardGame.utils.Icons.IconPath;
-import de.cardGame.utils.Words.WordTypes;
-import de.cardGame.utils.Words.Words;
+import de.cardGame.utils.icons.IconManager;
+import de.cardGame.utils.icons.IconPath;
+import de.cardGame.utils.words.WordTypes;
+import de.cardGame.utils.words.Words;
 
 public class SchereSteinPapierGUI implements ActionListener {
 	

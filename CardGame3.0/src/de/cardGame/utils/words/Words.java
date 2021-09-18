@@ -1,4 +1,4 @@
-package de.cardGame.utils.Words;
+package de.cardGame.utils.words;
 
 import java.awt.Font;
 import java.util.ArrayList;
@@ -7,7 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 
 import de.cardGame.main.CardGame;
-import de.cardGame.utils.Sprachausgabe.TextType;
+import de.cardGame.utils.sprachausgabe.TextType;
 
 public class Words {
 

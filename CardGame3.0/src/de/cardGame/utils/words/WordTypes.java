@@ -1,4 +1,4 @@
-package de.cardGame.utils.Words;
+package de.cardGame.utils.words;
 
 public enum WordTypes {
 

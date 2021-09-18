@@ -1,4 +1,4 @@
-package de.cardGame.utils.Icons;
+package de.cardGame.utils.icons;
 
 public enum IconPath {
 

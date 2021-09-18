@@ -1,4 +1,4 @@
-package de.cardGame.andereGames.Utils;
+package de.cardGame.andereGames.utils;
 
 import java.util.ArrayList;
 import java.util.Random;

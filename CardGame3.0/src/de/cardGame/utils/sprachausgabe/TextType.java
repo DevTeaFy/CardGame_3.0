@@ -1,4 +1,4 @@
-package de.cardGame.utils.Sprachausgabe;
+package de.cardGame.utils.sprachausgabe;
 
 public enum TextType {
 	

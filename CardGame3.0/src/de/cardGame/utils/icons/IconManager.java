@@ -1,4 +1,4 @@
-package de.cardGame.utils.Icons;
+package de.cardGame.utils.icons;
 
 import java.awt.Image;
 import java.net.URL;
@@ -6,7 +6,7 @@ import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
-import de.cardGame.GUI.StartScreenGUI;
+import de.cardGame.gui.StartScreenGUI;
 import de.cardGame.main.CardGame;
 
 public class IconManager {

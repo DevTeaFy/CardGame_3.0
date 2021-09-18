@@ -1,4 +1,4 @@
-package de.cardGame.andereGames.Utils;
+package de.cardGame.andereGames.utils;
 
 public class Player {
 	

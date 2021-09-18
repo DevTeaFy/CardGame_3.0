@@ -1,12 +1,12 @@
-package de.cardGame.cards.Generate;
+package de.cardGame.cards.generate;
 
 import java.util.Random;
 
-import de.cardGame.GUI.ProgressBarGUI;
 import de.cardGame.cards.Card;
+import de.cardGame.gui.ProgressBarGUI;
 import de.cardGame.main.CardGame;
-import de.cardGame.utils.Words.WordTypes;
-import de.cardGame.utils.Words.Words;
+import de.cardGame.utils.words.WordTypes;
+import de.cardGame.utils.words.Words;
 
 public class CardGenDe {
 
