@@ -196,16 +196,19 @@ public class StartScreenGUI implements ActionListener{
 	}
 
 
-	@SuppressWarnings("deprecation")
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == Settings) {
 			CheckPlayBack();
-			CardGame.getGUI().dispose();
-			SettingsGUI gui = new SettingsGUI(null);
-			CardGame.setGUI(gui.getFrame());
-			CardGame.getGUI().show();
-		}else if(e.getSource() == PlayGame) {
+			//CardGame.getGUI().dispose();
+			System.out.print(this.frame.getSize());
+			SettingsGUI gui = new SettingsGUI(this.frame);
+			JFrame str = CardGame.getGUI();
+			str = gui.getFrame();
+			str.show();
+			//CardGame.setGUI(gui.getFrame());
+			//CardGame.getGUI().show();
+		} else if(e.getSource() == PlayGame) {
 			Words.choosenWay.clear();
 			Words.choosenWayAnswer.clear();
 			Words.choosenWayID.clear();
@@ -213,7 +216,7 @@ public class StartScreenGUI implements ActionListener{
 			StoppUhr.Run();
 			CardGame.getGUI().dispose();
 			CardGame.setGUI(new GameGUI(null).getFrame());
-		}else if(e.getSource() == PlayAudioSotry) {
+		} else if(e.getSource() == PlayAudioSotry) {
 			SprachAusgabe.PlayGameInAudio();
 		}
 		

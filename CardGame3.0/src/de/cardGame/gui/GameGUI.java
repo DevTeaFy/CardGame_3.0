@@ -24,6 +24,9 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import de.cardGame.cards.Card;
+import de.cardGame.gui.components.MyButton;
+import de.cardGame.gui.components.MyLabel;
+import de.cardGame.gui.components.MyPanel;
 import de.cardGame.main.CardGame;
 import de.cardGame.utils.StoppUhr;
 import de.cardGame.utils.icons.IconManager;
@@ -73,6 +76,8 @@ public class GameGUI implements ActionListener {
 		this.frame.getContentPane().setBackground(Color.DARK_GRAY);
 		this.frame.setIconImage(new IconManager(IconPath.GameIcon).getImage());
 
+		titelbtn = new MyButton(Words.get(WordTypes.Karte) + "1",new Font(CardGame.getSettings().getSchriftart(), Font.PLAIN, 60), Color.green, SwingConstants.CENTER, SwingConstants.CENTER, 0, 0, 1, BorderFactory.createEmptyBorder(),this,false).getMyButtonAsJButton(true);
+		/*
 		titelbtn = new JButton();
 		titelbtn.setText(Words.get(WordTypes.Karte) + "1");
 		titelbtn.setFont(new Font(CardGame.getSettings().getSchriftart(), Font.PLAIN, 60));
@@ -83,6 +88,7 @@ public class GameGUI implements ActionListener {
 		titelbtn.setFocusable(false);
 		titelbtn.addActionListener(this);
 		titelbtn.setBorder(BorderFactory.createEmptyBorder());
+		*/
 
 		menuBar = new JMenuBar();
 		menuBar.setBackground(CardGame.BackgroundColor);
@@ -171,74 +177,35 @@ public class GameGUI implements ActionListener {
 
 		this.frame.setJMenuBar(menuBar);
 
-		StoryCreator = new JLabel();
-		StoryCreator.setText(Words.get(WordTypes.StoryBasedOn));
-		StoryCreator.setPreferredSize(new Dimension(400, 20));
-		StoryCreator.setFont(new Font(CardGame.getSettings().getSchriftart(), Font.PLAIN, 12));
-		StoryCreator.setForeground(new Color(0x808000));
-		StoryCreator.setHorizontalAlignment(SwingConstants.CENTER);
-		StoryCreator.setVerticalTextPosition(SwingConstants.TOP);
-		StoryCreator.setHorizontalTextPosition(SwingConstants.CENTER);
-
-		ProgrammedBy = new JLabel();
-		ProgrammedBy.setText("© Copyright 2021 Timon Filz");
-		ProgrammedBy.setPreferredSize(new Dimension(220, 20));
-		ProgrammedBy.setFont(new Font(CardGame.getSettings().getSchriftart(), Font.PLAIN, 12));
-		ProgrammedBy.setForeground(new Color(0x808000));
-		ProgrammedBy.setHorizontalAlignment(SwingConstants.CENTER);
+		StoryCreator = new MyLabel(Words.get(WordTypes.StoryBasedOn), new Font(CardGame.getSettings().getSchriftart(), Font.PLAIN, 12), new Color(0x808000), SwingConstants.CENTER, SwingConstants.CENTER, 1).getMyLabelAsJLabel(false);
+		StoryCreator.setVerticalTextPosition(SwingConstants.TOP);StoryCreator = new JLabel();
+		
+		ProgrammedBy = new MyLabel("© Copyright 2021 Timon Filz", new Font(CardGame.getSettings().getSchriftart(), Font.PLAIN, 12), new Color(0x808000), SwingConstants.CENTER, SwingConstants.CENTER, 1).getMyLabelAsJLabel(false);
 		ProgrammedBy.setVerticalTextPosition(SwingConstants.TOP);
-		ProgrammedBy.setHorizontalTextPosition(SwingConstants.CENTER);
-
-		PlaceHolderProgrammedBy = new JLabel();
-		PlaceHolderProgrammedBy.setText("");
-		PlaceHolderProgrammedBy.setPreferredSize(new Dimension(220, 20));
-		PlaceHolderProgrammedBy.setFont(new Font(CardGame.getSettings().getSchriftart(), Font.PLAIN, 12));
-		PlaceHolderProgrammedBy.setForeground(new Color(0x808000));
-		PlaceHolderProgrammedBy.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		PlaceHolderProgrammedBy = new MyLabel("", new Font(CardGame.getSettings().getSchriftart(), Font.PLAIN, 12), new Color(0x808000), SwingConstants.CENTER, SwingConstants.CENTER, 1).getMyLabelAsJLabel(false);
 		PlaceHolderProgrammedBy.setVerticalTextPosition(SwingConstants.TOP);
-		PlaceHolderProgrammedBy.setHorizontalTextPosition(SwingConstants.CENTER);
-
-		PanelmainNorth.setLayout(new BorderLayout());
-		PanelmainSouth.setLayout(new BorderLayout());
+		PlaceHolderProgrammedBy.setPreferredSize(new Dimension(220, 20));PlaceHolderProgrammedBy = new JLabel();
+		
+		PanelmainNorth = new MyPanel(new Dimension(100, 100),new BorderLayout()).getMyPanelAsJPanel();
+		PanelmainSouth = new MyPanel(new Dimension(40, 30),new BorderLayout()).getMyPanelAsJPanel();
+		
+		PanelmainEast = new MyPanel(new Dimension(20, 20),null).getMyPanelAsJPanel();
+		PanelmainWest = new MyPanel(new Dimension(20, 20),null).getMyPanelAsJPanel();
+		
 		PanelmainNorth.add(titelbtn, BorderLayout.CENTER);
 		PanelmainSouth.add(StoryCreator, BorderLayout.CENTER);
 		PanelmainSouth.add(ProgrammedBy, BorderLayout.EAST);
 		PanelmainSouth.add(PlaceHolderProgrammedBy, BorderLayout.WEST);
 
-		PanelmainNorth.setBackground(CardGame.BackgroundColor);
-		PanelmainNorth.setPreferredSize(new Dimension(100, 100));
-		PanelmainEast.setBackground(CardGame.BackgroundColor);
-		PanelmainEast.setPreferredSize(new Dimension(20, 20));
-		PanelmainWest.setBackground(CardGame.BackgroundColor);
-		PanelmainWest.setPreferredSize(new Dimension(20, 20));
-		PanelmainSouth.setBackground(CardGame.BackgroundColor);
-		PanelmainSouth.setPreferredSize(new Dimension(40, 30));
-		contentPanel.setBackground(CardGame.BackgroundColor);
-		contentPanel.setLayout(new GridLayout(2, 1, 10, 10));
-
-		contentPanelTop.setPreferredSize(new Dimension(40, 40));
-		contentPanelTop.setLayout(new BorderLayout());
-		contentPanelTop.setPreferredSize(new Dimension(40, 40));
-		contentPanelTop.setBackground(new Color(0x505050));
-		contentPanelBottom.setPreferredSize(new Dimension(40, 40));
-		contentPanelBottom.setBackground(CardGame.BackgroundColor);
-		contentPanelBottom.setLayout(new BorderLayout());
-
+		contentPanel = new MyPanel(new GridLayout(2, 1, 10, 10)).getMyPanelAsJPanel();
+		contentPanelTop = new MyPanel(new Dimension(40, 40), new BorderLayout()).getMyPanelAsJPanel();
+		contentPanelBottom = new MyPanel(new Dimension(40, 40), new BorderLayout()).getMyPanelAsJPanel();
+		
 		contentPanel.add(contentPanelTop);
 		contentPanel.add(contentPanelBottom);
 
-		Storybtn = new JButton();
-		Storybtn.setText(CardGame.cards.get(0).getText());
-		Storybtn.setFont(new Font(CardGame.getSettings().getSchriftart(), Font.PLAIN, 26));
-		Storybtn.setForeground(new Color(0x06A666));
-		Storybtn.setBackground(CardGame.BackgroudColorMatch2);
-		Storybtn.setHorizontalAlignment(SwingConstants.LEFT);
-		Storybtn.setVerticalTextPosition(SwingConstants.TOP);
-		Storybtn.setVerticalAlignment(SwingConstants.TOP);
-		Storybtn.setHorizontalTextPosition(SwingConstants.LEFT);
-		Storybtn.setFocusable(false);
-		Storybtn.addActionListener(this);
-		Storybtn.setBorder(BorderFactory.createEmptyBorder());
+		Storybtn = new MyButton(CardGame.cards.get(0).getText(), new Font(CardGame.getSettings().getSchriftart(), Font.PLAIN, 26), new Color(0x06A666), SwingConstants.LEFT, SwingConstants.CENTER, SwingConstants.LEFT, SwingConstants.CENTER, 1, BorderFactory.createEmptyBorder(), this, false).getMyButtonAsJButton(false);
 
 		contentPanelTop.add(Storybtn, BorderLayout.CENTER);
 
@@ -250,72 +217,20 @@ public class GameGUI implements ActionListener {
 		contentPanelBottom_Right.setLayout(new GridLayout(3, 1, 10, 10));
 		contentPanelBottom_Right.setBackground(CardGame.BackgroundColor);
 
-		Abtn = new JButton();
-		Abtn.setText(CardGame.cards.get(0).getAntwortA());
-		Abtn.setFont(new Font(CardGame.getSettings().getSchriftart(), Font.PLAIN, 25));
-		Abtn.setForeground(new Color(0x06A666));
-		Abtn.setBackground(CardGame.BackgroudColorMatch2);
-		Abtn.setHorizontalAlignment(SwingConstants.LEFT);
-		Abtn.setVerticalTextPosition(SwingConstants.CENTER);
-		Abtn.setVerticalAlignment(SwingConstants.CENTER);
-		Abtn.setHorizontalTextPosition(SwingConstants.LEFT);
-		Abtn.setFocusable(false);
-		Abtn.addActionListener(this);
-		Abtn.setBorder(BorderFactory.createEmptyBorder());
-
-		Bbtn = new JButton();
-		Bbtn.setText(CardGame.cards.get(0).getAntwortB());
-		Bbtn.setFont(new Font(CardGame.getSettings().getSchriftart(), Font.PLAIN, 25));
-		Bbtn.setForeground(new Color(0x06A666));
-		Bbtn.setBackground(CardGame.BackgroudColorMatch2);
-		Bbtn.setHorizontalAlignment(SwingConstants.LEFT);
-		Bbtn.setVerticalTextPosition(SwingConstants.CENTER);
-		Bbtn.setVerticalAlignment(SwingConstants.CENTER);
-		Bbtn.setHorizontalTextPosition(SwingConstants.LEFT);
-		Bbtn.setFocusable(false);
-		Bbtn.addActionListener(this);
-		Bbtn.setBorder(BorderFactory.createEmptyBorder());
-
-		Cbtn = new JButton();
-		Cbtn.setText(CardGame.cards.get(0).getAntwortC());
-		Cbtn.setFont(new Font(CardGame.getSettings().getSchriftart(), Font.PLAIN, 25));
-		Cbtn.setForeground(new Color(0x06A666));
-		Cbtn.setBackground(CardGame.BackgroudColorMatch2);
-		Cbtn.setHorizontalAlignment(SwingConstants.LEFT);
-		Cbtn.setVerticalTextPosition(SwingConstants.CENTER);
-		Cbtn.setVerticalAlignment(SwingConstants.CENTER);
-		Cbtn.setHorizontalTextPosition(SwingConstants.LEFT);
-		Cbtn.setFocusable(false);
-		Cbtn.addActionListener(this);
-		Cbtn.setBorder(BorderFactory.createEmptyBorder());
-
-		VorlesenAbtn = new JButton();
-		VorlesenAbtn.setForeground(new Color(0x06A666));
-		VorlesenAbtn.setBackground(CardGame.BackgroudColorMatch2);
-		VorlesenAbtn.setFocusable(false);
+		Abtn = new MyButton(CardGame.cards.get(0).getAntwortA(), new Font(CardGame.getSettings().getSchriftart(), Font.PLAIN, 25), new Color(0x06A666), SwingConstants.LEFT, SwingConstants.CENTER, SwingConstants.LEFT, SwingConstants.CENTER, 1, BorderFactory.createEmptyBorder(), this, false).getMyButtonAsJButton(false);
+		Bbtn = new MyButton(CardGame.cards.get(0).getAntwortB(), new Font(CardGame.getSettings().getSchriftart(), Font.PLAIN, 25), new Color(0x06A666), SwingConstants.LEFT, SwingConstants.CENTER, SwingConstants.LEFT, SwingConstants.CENTER, 1, BorderFactory.createEmptyBorder(), this, false).getMyButtonAsJButton(false);
+		Cbtn = new MyButton(CardGame.cards.get(0).getAntwortC(), new Font(CardGame.getSettings().getSchriftart(), Font.PLAIN, 25), new Color(0x06A666), SwingConstants.LEFT, SwingConstants.CENTER, SwingConstants.LEFT, SwingConstants.CENTER, 1, BorderFactory.createEmptyBorder(), this, false).getMyButtonAsJButton(false);
+		
+		
+		VorlesenAbtn = new MyButton(null, null, new Color(0x06A666), 0, 0, 0, 0, 1, BorderFactory.createEmptyBorder(), this, false).addIcon(new IconManager(IconPath.Playx64).getImageIcon()).getMyButtonAsJButton(false);
 		VorlesenAbtn.setMnemonic('a');
-		VorlesenAbtn.addActionListener(this);
-		VorlesenAbtn.setIcon(new IconManager(IconPath.Playx64).getImageIcon());
-		VorlesenAbtn.setBorder(BorderFactory.createEmptyBorder());
-
-		VorlesenBbtn = new JButton();
-		VorlesenBbtn.setForeground(new Color(0x06A666));
-		VorlesenBbtn.setBackground(CardGame.BackgroudColorMatch2);
-		VorlesenBbtn.setFocusable(false);
+		
+		VorlesenBbtn = new MyButton(null, null, new Color(0x06A666), 0, 0, 0, 0, 1, BorderFactory.createEmptyBorder(), this, false).addIcon(new IconManager(IconPath.Playx64).getImageIcon()).getMyButtonAsJButton(false);
 		VorlesenBbtn.setMnemonic('b');
-		VorlesenBbtn.addActionListener(this);
-		VorlesenBbtn.setIcon(new IconManager(IconPath.Playx64).getImageIcon());
-		VorlesenBbtn.setBorder(BorderFactory.createEmptyBorder());
 
-		VorlesenCbtn = new JButton();
-		VorlesenCbtn.setForeground(new Color(0x06A666));
-		VorlesenCbtn.setBackground(CardGame.BackgroudColorMatch2);
-		VorlesenCbtn.setFocusable(false);
+		VorlesenCbtn = new MyButton(null, null, new Color(0x06A666), 0, 0, 0, 0, 1, BorderFactory.createEmptyBorder(), this, false).addIcon(new IconManager(IconPath.Playx64).getImageIcon()).getMyButtonAsJButton(false);
 		VorlesenCbtn.setMnemonic('c');
-		VorlesenCbtn.addActionListener(this);
-		VorlesenCbtn.setIcon(new IconManager(IconPath.Playx64).getImageIcon());
-		VorlesenCbtn.setBorder(BorderFactory.createEmptyBorder());
-
+		
 		contentPanelBottom_Right.add(Abtn);
 		contentPanelBottom_Right.add(Bbtn);
 		contentPanelBottom_Right.add(Cbtn);
@@ -325,9 +240,7 @@ public class GameGUI implements ActionListener {
 		contentPanelBottom.add(contentPanelBottom_Left, BorderLayout.WEST);
 		contentPanelBottom.add(contentPanelBottom_Right, BorderLayout.CENTER);
 
-		framePanel = new JPanel();
-		framePanel.setBackground(new Color(0x505050));
-		framePanel.setLayout(new BorderLayout());
+		framePanel = new MyPanel(new BorderLayout(), new Color(0x505050)).getMyPanelAsJPanel();
 
 		framePanel.add(PanelmainNorth, BorderLayout.NORTH);
 		framePanel.add(PanelmainEast, BorderLayout.EAST);
@@ -412,8 +325,8 @@ public class GameGUI implements ActionListener {
 				Words.choosenWayAnswer.add(TextType.GameOver);
 				Words.choosenWay.add(
 						Words.get(WordTypes.Karte) + (Card.AktiveCardID + 1) + " + " + Words.get(WordTypes.GameOver));
-				CardGame.getGUI().dispose();
-				StartScreenGUI startScreenGUI = new StartScreenGUI(null);
+				StartScreenGUI startScreenGUI = new StartScreenGUI(this.frame);
+				//CardGame.getGUI().dispose();
 				StoppUhr.Stopp();
 				SetCardPathinStartScreen(startScreenGUI);
 				CardGame.setGUI(startScreenGUI.getFrame());
