@@ -23,6 +23,7 @@ public class CardGame {
 	public static Color BackgroundColor,BackgroudColorMatch2;
 	private static GraphicsDevice graphicsDevice = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
 	public static ArrayList<Card> cards = new ArrayList<>();
+	public static String ich = "Ich War hier!";
 	
 	public static void main(String[] args) {
 		st = new Settings();
