@@ -12,7 +12,7 @@ import de.cardGame.utils.settings.Settings;
 
 @SuppressWarnings("serial")
 public class MyPanel extends JComponent {
-	
+	/*
 	private Dimension Dimension;
 	private LayoutManager LayoutManager;
 	private Color BackgroundColor;
@@ -81,6 +81,6 @@ public class MyPanel extends JComponent {
 	public void setLayoutManager(LayoutManager layoutManager) {
 		LayoutManager = layoutManager;
 	}
-	
+	*/
 	
 }
