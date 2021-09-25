@@ -24,7 +24,7 @@ import de.cardGame.utils.words.WordTypes;
 import de.cardGame.utils.words.Words;
 
 public class StartScreenGUI implements ActionListener{
-	
+	/*
 	private JFrame frame;
 	private JLabel titellbl;
 	private JLabel subtitellbl;
@@ -238,4 +238,5 @@ public class StartScreenGUI implements ActionListener{
 	public void setPlayAudioSotryVisible(boolean value) {
 		PlayAudioSotry.setVisible(value);
 	}
+	*/
 }
