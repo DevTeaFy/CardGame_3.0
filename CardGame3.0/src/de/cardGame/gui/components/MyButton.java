@@ -13,8 +13,9 @@ import de.cardGame.main.CardGame;
 import de.cardGame.utils.settings.Settings;
 
 @SuppressWarnings("serial")
-public class MyButton extends JComponent {
-	
+public class MyButton extends JComponent{
+	/*
+	 * 
 	private String Text = "";
 	private Font Font = null;
 	private Color BackgroundColorMain, BackgroundColorSecondary, ForegroundColor;
@@ -178,5 +179,5 @@ public class MyButton extends JComponent {
 	public void setImageIcon(ImageIcon imageIcon) {
 		ImageIcon = imageIcon;
 	}
-	
+	*/
 }

@@ -11,7 +11,7 @@ import de.cardGame.utils.settings.Settings;
 
 @SuppressWarnings("serial")
 public class MyLabel extends JComponent {
-
+	/*
 	private String Text = "";
 	private Font Font = null;
 	private Color BackgroundColorMain, BackgroundColorSecondary, ForegroundColor;
@@ -120,5 +120,5 @@ public class MyLabel extends JComponent {
 	public void setBackgroundColorSecondary(Color backgroundColorSecondary) {
 		BackgroundColorSecondary = backgroundColorSecondary;
 	}
-	
+	*/
 }

@@ -37,7 +37,7 @@ import de.cardGame.utils.words.WordTypes;
 import de.cardGame.utils.words.Words;
 
 public class GameGUI implements ActionListener {
-
+	/*
 	private JFrame frame;
 	private JLabel StoryCreator, ProgrammedBy, PlaceHolderProgrammedBy;
 	private JPanel framePanel = new JPanel();
@@ -77,7 +77,7 @@ public class GameGUI implements ActionListener {
 		this.frame.setIconImage(new IconManager(IconPath.GameIcon).getImage());
 
 		titelbtn = new MyButton(Words.get(WordTypes.Karte) + "1",new Font(CardGame.getSettings().getSchriftart(), Font.PLAIN, 60), Color.green, SwingConstants.CENTER, SwingConstants.CENTER, 0, 0, 1, BorderFactory.createEmptyBorder(),this,false).getMyButtonAsJButton(true);
-		/*
+		
 		titelbtn = new JButton();
 		titelbtn.setText(Words.get(WordTypes.Karte) + "1");
 		titelbtn.setFont(new Font(CardGame.getSettings().getSchriftart(), Font.PLAIN, 60));
@@ -88,7 +88,7 @@ public class GameGUI implements ActionListener {
 		titelbtn.setFocusable(false);
 		titelbtn.addActionListener(this);
 		titelbtn.setBorder(BorderFactory.createEmptyBorder());
-		*/
+		
 
 		menuBar = new JMenuBar();
 		menuBar.setBackground(CardGame.BackgroundColor);
@@ -601,4 +601,5 @@ public class GameGUI implements ActionListener {
 			}
 		}
 	}
+	*/
 }
