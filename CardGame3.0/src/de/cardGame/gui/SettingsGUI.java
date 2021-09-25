@@ -35,7 +35,7 @@ import de.cardGame.utils.words.WordTypes;
 import de.cardGame.utils.words.Words;
 
 public class SettingsGUI implements ActionListener, ChangeListener{
-	
+	/*
 	private JFrame frame;
 	private JPanel framePanel;
 	private JPanel titelPanel;
@@ -718,6 +718,6 @@ public class SettingsGUI implements ActionListener, ChangeListener{
 		}else if(getdesign().equalsIgnoreCase("Hell")) {
 			Hell.setSelected(true);
 		}
-	}
+	}*/
 
 }

@@ -16,7 +16,7 @@ import de.cardGame.utils.words.WordTypes;
 import de.cardGame.utils.words.Words;
 
 public class ProgressBarGUI{
-	
+/*	
 	private JFrame frame = null;
 	private JPanel panel = null;
 	private JProgressBar progressBar= null;
@@ -111,6 +111,6 @@ public class ProgressBarGUI{
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-	}
+	}*/
 
 }

@@ -27,7 +27,7 @@ import de.cardGame.utils.words.WordTypes;
 import de.cardGame.utils.words.Words;
 
 public class ProgrammedByGUI implements ActionListener {
-	
+	/*
 	private JFrame frame;
 	private JPanel framePanel = new JPanel();
 	private JPanel PanelmainNorth = new JPanel();
@@ -166,6 +166,6 @@ public class ProgrammedByGUI implements ActionListener {
 		StoppUhr.Stopp();
 		CardGame.setGUI(new GamesGUI(false).getFrame());
 		
-	}
+	}*/
 	
 }

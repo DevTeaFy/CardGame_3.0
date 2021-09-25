@@ -13,7 +13,7 @@ import de.cardGame.main.CardGame;
 import de.cardGame.utils.settings.Settings;
 
 @SuppressWarnings("serial")
-public class MyButton extends JComponent{
+public class MyButton extends JComponent {
 	
 	private String Text = "";
 	private Font Font = null;
