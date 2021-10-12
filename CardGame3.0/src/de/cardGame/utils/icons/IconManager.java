@@ -22,7 +22,7 @@ public class IconManager {
 		this.imageIcon = new ImageIcon(input);
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "Wenn das auftritt RUF den Tech-Support!");
-			CardGame.setGUI(new StartScreenGUI(null).getFrame());
+			CardGame.setGUI(null);
 		}
 		this.image = this.imageIcon.getImage();
 	}

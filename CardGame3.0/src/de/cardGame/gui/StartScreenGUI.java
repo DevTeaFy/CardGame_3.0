@@ -25,24 +25,7 @@ import de.cardGame.utils.words.Words;
 
 public class StartScreenGUI implements ActionListener{
 	/*
-	private JFrame frame;
-	private JLabel titellbl;
-	private JLabel subtitellbl;
-	private JLabel TimePlayed;
-	private JLabel NumberOfCards;
-	private JLabel CardPath;
-	private JButton Settings;
-	private JButton PlayAudioSotry;
-	private JButton PlayGame;
-	private JPanel framePanel = new JPanel();
-	private JPanel titelPanel = new JPanel();
-	private JPanel PanelmainEast = new JPanel();
-	private JPanel PanelmainWest = new JPanel();
-	private JPanel PanelmainSouth = new JPanel();
-	private JPanel contentPanel = new JPanel();
-	private JPanel contentPanel1 = new JPanel();
-	private JPanel contentPanel2 = new JPanel();
-	private JPanel contentPanel3 = new JPanel();
+	private JFrame frame;8
 	
 	public StartScreenGUI(JFrame lframe) {
 		if(lframe == null) {

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 
 import de.cardGame.cards.Card;
@@ -28,26 +29,46 @@ public class CardGame {
 		st = new Settings();
 		st.load();
 		if(st.getLanguage().equalsIgnoreCase("De_de")) {
-			CardGenDe.generateCards(true);
+			//CardGenDe.generateCards(false);
 		}else if(st.getLanguage().equalsIgnoreCase("En_en")) {
-			CardGenEn.generateCards(true);
+			//CardGenEn.generateCards(false);
 		}
 		setBackgroundColor(false,null);
 		Timer timer = new Timer();
 		timer.schedule(new TimerTask() {
 			@Override
 			public void run() {
-				setGUI(new StartScreenGUI(null).getFrame());
+				de.cardGame.gui.GUI gui = new de.cardGame.gui.GUI();
+				gui.Create();;
+				gui.show();
+				
+				gui.getBbtn().addActionListener(e -> {
+					//JComponent source = (JComponent) e.getSource();
+					gui.Switch(4);
+				});
+				
+				gui.getStorybtn().addActionListener(e -> {
+					//JComponent source = (JComponent) e.getSource();
+					gui.Switch(3);
+				});
+
+				gui.getTitelbtn().addActionListener(e -> {
+					//JComponent source = (JComponent) e.getSource();
+					gui.Switch(1);
+				});
+				
+				gui.getAbtn().addActionListener(e -> {
+					//JComponent source = (JComponent) e.getSource();
+					gui.Switch(2);
+				});
+			
+				
+				
+				
 			}
 		}, 1000);
 		
-		Timer timer2 = new Timer();
-		timer2.schedule(new TimerTask() {
-			@Override
-			public void run() {
-				getGUI().setSize(1053, 597);
-			}
-		}, 1250);
+		
 		
 	}
 	
