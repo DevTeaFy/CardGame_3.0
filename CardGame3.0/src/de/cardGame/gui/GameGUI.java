@@ -50,7 +50,7 @@ public class GameGUI implements ActionListener {
 
 	private JMenuBar menuBar;
 	private JMenu Pages, Extras, Help;
-	private JMenuItem Startscreen, Settings, PageBack, ProgrammedByHelp, KeyUse, CardPath;
+	private JMenuItem Startscreen, Settings, PageBack, ProgrammedByHelp, KeyUse, CardPath, kannstdulesen;
 
 	public GameGUI(JFrame lframe) {
 		if (lframe == null) {
@@ -68,7 +68,7 @@ public class GameGUI implements ActionListener {
 		this.frame.setLayout(new BorderLayout());
 		this.frame.setResizable(true);
 		this.frame.setTitle(Words.get(WordTypes.Name));
-		this.frame.setAlwaysOnTop(true);
+		this.frame.setAlwaysOnTop(false);
 		this.frame.setVisible(true);
 		this.frame.getContentPane().setBackground(Color.DARK_GRAY);
 		this.frame.setIconImage(new IconManager(IconPath.GameIcon).getImage());
@@ -157,6 +157,15 @@ public class GameGUI implements ActionListener {
 		PageBack.setMnemonic(KeyEvent.VK_Z);
 		PageBack.setIcon(new IconManager(IconPath.CardBackx32).getImageIcon());
 		PageBack.setFont(new Font(CardGame.getSettings().getSchriftart(), Font.PLAIN, 20));
+		kannstdulesen = new JMenuItem(Words.get(WordTypes.KannstDuLesen));
+		kannstdulesen.setBackground(CardGame.BackgroundColor);
+		kannstdulesen.setFocusable(false);
+		kannstdulesen.addActionListener(this);
+		kannstdulesen.setVisible(false);
+		kannstdulesen.setForeground(new Color(0x06A666));
+		kannstdulesen.setIcon(new IconManager(IconPath.KannstDuLesen).getImageIcon());//
+
+		kannstdulesen.setFont(new Font(CardGame.getSettings().getSchriftart(), Font.PLAIN, 20));
 
 		Pages.add(Settings);
 		Pages.add(Startscreen);
@@ -168,6 +177,7 @@ public class GameGUI implements ActionListener {
 		menuBar.add(Pages);
 		menuBar.add(Extras);
 		menuBar.add(Help);
+		menuBar.add(kannstdulesen);
 
 		this.frame.setJMenuBar(menuBar);
 
@@ -347,7 +357,13 @@ public class GameGUI implements ActionListener {
 	public void setCardText(int id) {
 		Card C = CardGame.cards.get(id);
 		Card.AktiveCardID = id;
+		if(id == 43 || id == 50 || (id == 26 && !Card.German && CardGame.getSettings().getStimmenArt().equalsIgnoreCase("W")) || (id == 64 && !Card.German && CardGame.getSettings().getStimmenArt().equalsIgnoreCase("W")) || (id == 45 && Card.German  && CardGame.getSettings().getStimmenArt().equalsIgnoreCase("M")) || ((id == 11 || id == 21 || id == 35 || id == 39 || id == 65) && !Card.German && CardGame.getSettings().getStimmenArt().equalsIgnoreCase("M")) || (id == 13 && !Card.German && CardGame.getSettings().getStimmenArt().equalsIgnoreCase("M"))) {
+			kannstdulesen.setVisible(true);
+		}else {
+			kannstdulesen.setVisible(false);
+		}
 		titelbtn.setText(Words.get(WordTypes.Karte) + String.valueOf((id + 1)));
+		
 		if (C.getAntwortA() != null) {
 			Abtn.setText(C.getAntwortA());
 			Abtn.setVisible(true);
@@ -526,26 +542,76 @@ public class GameGUI implements ActionListener {
 			StoppUhr.Stopp();
 			CardGame.setGUI(new SettingsGUI(null).getFrame());
 		} else if (e.getSource() == PageBack) {
-			if(de.cardGame.utils.settings.Settings.Cardback <= 2 && de.cardGame.utils.settings.Settings.Cardback >= 1) {
+			if (de.cardGame.utils.settings.Settings.Cardback <= 2
+					&& de.cardGame.utils.settings.Settings.Cardback >= 1) {
 				de.cardGame.utils.settings.Settings.Cardback--;
 				StopSprachausgabeAsistent();
-					if (Words.choosenWay.size() >= 1) {
-						setCardText(Words.choosenWayID.get((Words.choosenWayID.size() - 1)));
-						Words.choosenWayAnswer.remove((Words.choosenWayAnswer.size() - 1));
-						Words.choosenWayID.remove((Words.choosenWayID.size() - 1));
-						Words.choosenWayAnswer.remove((Words.choosenWayAnswer.size() - 1));
-						Words.choosenWayID.remove((Words.choosenWayID.size() - 1));
-						Words.choosenWay.remove((Words.choosenWay.size() - 1));
-					} else {
-						setCardText(0);
-					}
-			}else {
+				if (Words.choosenWay.size() >= 1) {
+					setCardText(Words.choosenWayID.get((Words.choosenWayID.size() - 1)));
+					Words.choosenWayAnswer.remove((Words.choosenWayAnswer.size() - 1));
+					Words.choosenWayID.remove((Words.choosenWayID.size() - 1));
+					Words.choosenWayAnswer.remove((Words.choosenWayAnswer.size() - 1));
+					Words.choosenWayID.remove((Words.choosenWayID.size() - 1));
+					Words.choosenWay.remove((Words.choosenWay.size() - 1));
+				} else {
+					setCardText(0);
+				}
+			} else {
 				JOptionPane.showMessageDialog(CardGame.getGUI(), Words.get(WordTypes.NOMoreCardsBack));
 			}
 		} else if (e.getSource() == ProgrammedByHelp) {
 			new ProgrammedByGUI();
 		} else if (e.getSource() == KeyUse) {
 			new KeyUseGUI();
+		}else if(e.getSource() == kannstdulesen) {
+			if(Card.AktiveCardID == 43 || Card.AktiveCardID == 50) {
+				String intput = JOptionPane.showInputDialog(Words.get(WordTypes.Card43und50Fehler));
+				if(intput.equalsIgnoreCase(Words.get(WordTypes.Roulette))) {
+					JOptionPane.showMessageDialog(null, Words.get(WordTypes.Richtig),Words.get(WordTypes.Card43und50Fehler),JOptionPane.INFORMATION_MESSAGE);
+				}else {
+					JOptionPane.showMessageDialog(null, Words.get(WordTypes.Falsch),Words.get(WordTypes.Card43und50Fehler),JOptionPane.ERROR_MESSAGE);
+				}
+			}
+			if(Card.AktiveCardID == 26 && !Card.German) {
+				String intput = JOptionPane.showInputDialog(Words.get(WordTypes.Card26Fehler));
+				if(intput.equalsIgnoreCase(Words.get(WordTypes.marrythem))) {
+					JOptionPane.showMessageDialog(null, Words.get(WordTypes.Richtig),Words.get(WordTypes.Card26Fehler),JOptionPane.INFORMATION_MESSAGE);
+				}else {
+					JOptionPane.showMessageDialog(null, Words.get(WordTypes.Falsch),Words.get(WordTypes.Card26Fehler),JOptionPane.ERROR_MESSAGE);
+				}
+			}
+			if(Card.AktiveCardID == 64 && !Card.German) {
+				String intput = JOptionPane.showInputDialog(Words.get(WordTypes.Card64Fehler));
+				if(intput.equalsIgnoreCase(Words.get(WordTypes.your))) {
+					JOptionPane.showMessageDialog(null, Words.get(WordTypes.Richtig),Words.get(WordTypes.Card64Fehler),JOptionPane.INFORMATION_MESSAGE);
+				}else {
+					JOptionPane.showMessageDialog(null, Words.get(WordTypes.Falsch),Words.get(WordTypes.Card64Fehler),JOptionPane.ERROR_MESSAGE);
+				}
+			}
+			if(Card.AktiveCardID == 45 && Card.German) {
+				String intput = JOptionPane.showInputDialog(Words.get(WordTypes.Card45Fehler));
+				if(intput.equalsIgnoreCase(Words.get(WordTypes.das))) {
+					JOptionPane.showMessageDialog(null, Words.get(WordTypes.Richtig),Words.get(WordTypes.Card45Fehler),JOptionPane.INFORMATION_MESSAGE);
+				}else {
+					JOptionPane.showMessageDialog(null, Words.get(WordTypes.Falsch),Words.get(WordTypes.Card45Fehler),JOptionPane.ERROR_MESSAGE);
+				}
+			}
+			if((Card.AktiveCardID == 11 || Card.AktiveCardID == 21 || Card.AktiveCardID == 35 || Card.AktiveCardID == 39 || Card.AktiveCardID == 65) && !Card.German) {
+				String intput = JOptionPane.showInputDialog(Words.get(WordTypes.Card11_21_35_39_65Fehler));
+				if(intput.equalsIgnoreCase(Words.get(WordTypes.colleague))) {
+					JOptionPane.showMessageDialog(null, Words.get(WordTypes.Richtig),Words.get(WordTypes.Card11_21_35_39_65Fehler),JOptionPane.INFORMATION_MESSAGE);
+				}else {
+					JOptionPane.showMessageDialog(null, Words.get(WordTypes.Falsch),Words.get(WordTypes.Card11_21_35_39_65Fehler),JOptionPane.ERROR_MESSAGE);
+				}
+			}
+			if(Card.AktiveCardID == 13 && !Card.German) {
+				String intput = JOptionPane.showInputDialog(Words.get(WordTypes.Card13Fehler));
+				if(intput.equalsIgnoreCase(Words.get(WordTypes.whom))) {
+					JOptionPane.showMessageDialog(null, Words.get(WordTypes.Richtig),Words.get(WordTypes.Card13Fehler),JOptionPane.INFORMATION_MESSAGE);
+				}else {
+					JOptionPane.showMessageDialog(null, Words.get(WordTypes.Falsch),Words.get(WordTypes.Card13Fehler),JOptionPane.ERROR_MESSAGE);
+				}
+			}
 		}
 	}
 

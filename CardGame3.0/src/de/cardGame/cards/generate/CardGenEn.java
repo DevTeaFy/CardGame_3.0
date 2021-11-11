@@ -573,25 +573,25 @@ public class CardGenEn{
         IsOver[73] = true;
 		AudioFilePath[73] = "Audio/Card_73/En_en/";
 		if(animation) {
-//		ProgressBarGUI ProgressBarGUI = new ProgressBarGUI(Words.get(WordTypes.LoadCardsTitel), 74);
-//        CardGame.cards.clear();
-//        
-//        for(int i=0; i < 74; i++) {
-//            if(isSonder[i] == true){
-//            	CardGame.cards.add(new Card(text[i], selectA[i], selectB[i], nextA[i], nextB[i], true,AudioFilePath[i]));
-//            } else if(IsOver[i] == false && isBlank[i] == false) {
-//            	CardGame.cards.add(new Card(text[i], selectA[i], selectB[i], selectC[i], nextA[i], nextB[i], nextC[i],AudioFilePath[i]));
-//            } else if(IsOver[i] == true) {
-//            	CardGame.cards.add(new Card(text[i],AudioFilePath[i]));
-//            } else if(isBlank[i] == true) {
-//            	CardGame.cards.add(new Card(text[i], nextA[i],AudioFilePath[i]));
-//            }
-//			ProgressBarGUI.fill(i);
-//			int random = new Random().nextInt(200);
-//			ProgressBarGUI.Warten(random);
-//		}
-//		ProgressBarGUI.fill(74);
-//		ProgressBarGUI.progressend(Words.get(WordTypes.LoadCardsEnd));
+		ProgressBarGUI ProgressBarGUI = new ProgressBarGUI(Words.get(WordTypes.LoadCardsTitel), 74);
+        CardGame.cards.clear();
+        
+        for(int i=0; i < 74; i++) {
+            if(isSonder[i] == true){
+            	CardGame.cards.add(new Card(text[i], selectA[i], selectB[i], nextA[i], nextB[i], true,AudioFilePath[i]));
+            } else if(IsOver[i] == false && isBlank[i] == false) {
+            	CardGame.cards.add(new Card(text[i], selectA[i], selectB[i], selectC[i], nextA[i], nextB[i], nextC[i],AudioFilePath[i]));
+            } else if(IsOver[i] == true) {
+            	CardGame.cards.add(new Card(text[i],AudioFilePath[i]));
+            } else if(isBlank[i] == true) {
+            	CardGame.cards.add(new Card(text[i], nextA[i],AudioFilePath[i]));
+            }
+			ProgressBarGUI.fill(i);
+			int random = new Random().nextInt(200);
+			ProgressBarGUI.Warten(random);
+		}
+		ProgressBarGUI.fill(74);
+		ProgressBarGUI.progressend(Words.get(WordTypes.LoadCardsEnd));
 		}else {
 			CardGame.cards.clear();
 			for (int i = 0; i < 74; i++) {

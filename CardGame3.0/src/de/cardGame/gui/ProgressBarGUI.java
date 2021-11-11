@@ -31,7 +31,7 @@ public class ProgressBarGUI{
 		this.frame.setResizable(false);
 		this.frame.setIconImage(new IconManager(IconPath.GameIcon).getImage());
 		//this.frame.setTitle(Titel);
-		this.frame.setAlwaysOnTop(true);
+		this.frame.setAlwaysOnTop(false);
 		SetFrameVisible(true);
 		
 		int width = CardGame.getGraphicsDevice().getDisplayMode().getWidth();

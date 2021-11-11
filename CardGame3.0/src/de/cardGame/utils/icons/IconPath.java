@@ -17,6 +17,7 @@ public enum IconPath {
 	Pagesx32("Images/Pages/Pagesx32.png"),
 	PagesV2x32("Images/Pages/PagesV2x32.png"),
 	Extrasx32("Images/Extras/Pagesx32.png"),
+	KannstDuLesen("Images/Extras/Alarm_32px.png"),
 	CardPathx32("Images/Extras/CardPathx32.png"),
 	CardBackx32("Images/Extras/CardBackx32.png"),
 	CardBackV2x32("Images/Extras/ArrowBackx32.png"),

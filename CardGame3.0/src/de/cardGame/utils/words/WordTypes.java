@@ -56,7 +56,21 @@ public enum WordTypes {
 	GameOver("Spiel vorbei","Game Over"),
 	NOMoreCardsBack("Es gib nur 2 Karten Zurück. Diese sind aber schon aufgebraucht.","There are only 2 cards back. But these have already been used up. "),
 	Weiter("Weiter","Continue"),
-	
+	Richtig("Richtig","right"),
+	your("deine","your"),
+	das("das","this"),
+	whom("werm","whom"),
+	colleague("Kollege","colleague"),
+	marrythem("heirate sie","marry them"),
+	Roulette("Roulette","roulette"),
+	Card26Fehler("Hören Sie der Leserin zu und finden Sie die beiden Wörter, die nicht zum geschriebenen Text passen.","Listen to the female reader and find the two words that do not match the written text."),
+	Card43und50Fehler("Auf dieser Karte gibt es einen inhaltlichen Fehler. Finde das Wort, das durch ein anderes Wort ersetzt werden muss. Gib das neue Wort hier ein:","There is a content-related mistake on this card. Find the word that has to be replaced. Type in the new word here:"),
+	Card64Fehler("Hören Sie der Leserin zu und finden Sie das eine Wort aus dem Text, das sie nicht laut vorliest.","Listen to the female reader and find the one word from the text that she does not read out loud."),
+	Card45Fehler("Lass dir den Kartentext vom männlichen Sprecher vorlesen und finde das Wort, das nicht im geschriebenen Text steht.","Let the male speaker read the card text to you and find the word that is not in the written text."),
+	Card11_21_35_39_65Fehler("Hören Sie dem männlichen Sprecher zu und finden Sie das eine Wort, das nicht richtig ausgesprochen wird.","Listen to the male speaker and find the one word that is not pronounced correctly."),
+	Card13Fehler("Hören Sie dem männlichen Sprecher zu und finden Sie das eine Wort, das nicht richtig ausgesprochen wird.","Listen to the male speaker and find the one word that is not pronounced correctly."),
+	KannstDuLesen("Kannst du lesen?","can you read?"),
+	Falsch("Falsch","wrong"),
 	//GamesGUI
 	Games("Andere Spiele","Other Games"),
 	NameZuLang("Der gewählte Name ist zu lang/kurz!","The choosen name is too long/short!"),
@@ -68,6 +82,7 @@ public enum WordTypes {
 	hasWon("hat gewonnen!","has Won!"),
 	Tie("Unentschieden","tie!")
 	//schereSteinPapier
+
 	
 	;
 	

@@ -107,7 +107,7 @@ public class SettingsGUI implements ActionListener, ChangeListener{
 		this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.frame.setLayout(new BorderLayout());
 		this.frame.setResizable(true);
-		this.frame.setAlwaysOnTop(true);
+		this.frame.setAlwaysOnTop(false);
 		this.frame.setTitle(Words.get(WordTypes.Name));
 		this.frame.setIconImage(new IconManager(IconPath.GameIcon).getImage());
 		

@@ -38,7 +38,7 @@ public class KeyUseGUI {
 		this.frame.setLayout(new BorderLayout());
 		this.frame.setResizable(true);
 		this.frame.setTitle(Words.get(WordTypes.Name));
-		this.frame.setAlwaysOnTop(true);
+		this.frame.setAlwaysOnTop(false);
 		this.frame.setVisible(true);
 		this.frame.getContentPane().setBackground(CardGame.BackgroundColor);
 		this.frame.setIconImage(new IconManager(IconPath.GameIcon).getImage());
