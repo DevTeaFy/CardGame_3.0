@@ -430,9 +430,9 @@ public class SettingsGUI implements ActionListener, ChangeListener{
 		contentPanelright.add(Speichern);
 		
 		
-		contentPanel.add(contentPanelleft);
+		contentPanel.add(contentPanelright);// Ist jetzt einfach links eigentlich ist das contentPanelleft hier
 		contentPanel.add(contentPanelcenter);
-		contentPanel.add(contentPanelright);
+		contentPanel.add(contentPanelleft);// Ist jetzt einfach rechts eigentlich ist das contentPanelright hier
 		
 
 		framePanel = new JPanel();

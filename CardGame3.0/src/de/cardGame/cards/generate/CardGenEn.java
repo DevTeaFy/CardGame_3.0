@@ -110,7 +110,7 @@ public class CardGenEn{
 		AudioFilePath[7] = "Audio/Card_7/En_en/";
 
         //Card 8
-        text[8] = "You moved into the older flat and enjoyed living there. A man/woman in the same block started talking to you. You thought that they were nice and became interested in them. You started going out together and you were both happy. Then one day this man/woman told you that he/she had to leave town and would be away for about year. You decided to";
+        text[8] = "You moved into the older flat and enjoyed living there. A man/woman in the same block started talking to you. You thought that they were nice and became interested in them. You started going out together and you were both happy. Then one day this man/woman told you that he/she had to leave town and would be away for about a year. You decided to";
         selectA[8] = "a) end the relationship.";
         selectB[8] = "b) wait for them for a year.";
         selectC[8] = "c) go away with them, leaving your job and not knowing if you could get another one.";
@@ -130,7 +130,7 @@ public class CardGenEn{
 		AudioFilePath[9] = "Audio/Card_9/En_en/";
 
         //Card 10
-        text[10] = "You returned home, and this time, you were lucky - you found a new job, AND you fell in love with a wonderful person! You went to meet this peron's family, as you wanted to marry them. However, the family did not like you at all. You decided to";
+        text[10] = "You returned home, and this time, you were lucky - you found a new job, AND you fell in love with a wonderful person! You went to meet this person's family, as you wanted to marry them. However, the family did not like you at all. You decided to";
         selectA[10] = "a) get married anyway.";
         selectB[10] = "b) elope.";
         selectC[10] = "c) get married, but convince your partner that you should both move away from your town.";
@@ -274,7 +274,7 @@ public class CardGenEn{
 		AudioFilePath[25] = "Audio/Card_25/En_en/";
         
         //Card 26
-        text[26] = "You decided to wait for another year. You were lonely and missed your partner, but you felt that you had made the right decision. However, two months before your partner was due to return home, they wrote to you to tell you that they had met someone else and were going to be married. You were so dissappointed that you decided to move to another city.";
+        text[26] = "You decided to wait for another year. You were lonely and missed your partner, but you felt that you had made the right decision. However, two months before your partner was due to return home, they wrote to you to tell you that they had met someone else and were going to be married. You were so disappointed that you decided to move to another city.";
         nextA[26] = 3;
         isBlank[26] = true;
 		AudioFilePath[26] = "Audio/Card_26/En_en/";
@@ -477,7 +477,7 @@ public class CardGenEn{
 		AudioFilePath[57] = "Audio/Card_57/En_en/";
 
         //Card 58
-        text[58] = "You chose to sell it. You made a large profit and decided to go into business selling jewellery. You were extremly talented at it and did very well. You decided to invest in a boat.";
+        text[58] = "You chose to sell it. You made a large profit and decided to go into business selling jewellery. You were extremely talented at it and did very well. You decided to invest in a boat.";
         nextA[58] = 16;
         isBlank[58] = true;
 		AudioFilePath[58] = "Audio/Card_58/En_en/";
@@ -573,25 +573,25 @@ public class CardGenEn{
         IsOver[73] = true;
 		AudioFilePath[73] = "Audio/Card_73/En_en/";
 		if(animation) {
-		ProgressBarGUI ProgressBarGUI = new ProgressBarGUI(Words.get(WordTypes.LoadCardsTitel), 74);
-        CardGame.cards.clear();
-        
-        for(int i=0; i < 74; i++) {
-            if(isSonder[i] == true){
-            	CardGame.cards.add(new Card(text[i], selectA[i], selectB[i], nextA[i], nextB[i], true,AudioFilePath[i]));
-            } else if(IsOver[i] == false && isBlank[i] == false) {
-            	CardGame.cards.add(new Card(text[i], selectA[i], selectB[i], selectC[i], nextA[i], nextB[i], nextC[i],AudioFilePath[i]));
-            } else if(IsOver[i] == true) {
-            	CardGame.cards.add(new Card(text[i],AudioFilePath[i]));
-            } else if(isBlank[i] == true) {
-            	CardGame.cards.add(new Card(text[i], nextA[i],AudioFilePath[i]));
-            }
-			ProgressBarGUI.fill(i);
-			int random = new Random().nextInt(200);
-			ProgressBarGUI.Warten(random);
-		}
-		ProgressBarGUI.fill(74);
-		ProgressBarGUI.progressend(Words.get(WordTypes.LoadCardsEnd));
+//		ProgressBarGUI ProgressBarGUI = new ProgressBarGUI(Words.get(WordTypes.LoadCardsTitel), 74);
+//        CardGame.cards.clear();
+//        
+//        for(int i=0; i < 74; i++) {
+//            if(isSonder[i] == true){
+//            	CardGame.cards.add(new Card(text[i], selectA[i], selectB[i], nextA[i], nextB[i], true,AudioFilePath[i]));
+//            } else if(IsOver[i] == false && isBlank[i] == false) {
+//            	CardGame.cards.add(new Card(text[i], selectA[i], selectB[i], selectC[i], nextA[i], nextB[i], nextC[i],AudioFilePath[i]));
+//            } else if(IsOver[i] == true) {
+//            	CardGame.cards.add(new Card(text[i],AudioFilePath[i]));
+//            } else if(isBlank[i] == true) {
+//            	CardGame.cards.add(new Card(text[i], nextA[i],AudioFilePath[i]));
+//            }
+//			ProgressBarGUI.fill(i);
+//			int random = new Random().nextInt(200);
+//			ProgressBarGUI.Warten(random);
+//		}
+//		ProgressBarGUI.fill(74);
+//		ProgressBarGUI.progressend(Words.get(WordTypes.LoadCardsEnd));
 		}else {
 			CardGame.cards.clear();
 			for (int i = 0; i < 74; i++) {
