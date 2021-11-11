@@ -143,8 +143,8 @@ public class GamesGUI implements ActionListener {
 		this.frame.setVisible(true);
 	}
 
-	public JFrame getFrame() {
-		return this.frame;
+	public JPanel getFrame() {
+		return this.framePanel;
 	}
 
 	public void setFrameAfterName(Player p) {
@@ -246,8 +246,7 @@ public class GamesGUI implements ActionListener {
 		}else if(e.getSource() == btnSchereSteinPapier) {
 			if(NamesFeld.getText().length() >= 1 && NamesFeld.getText().length() <= 12) {
 				games.getPlayer().setName(NamesFeld.getText());
-				CardGame.getGUI().dispose();
-				CardGame.setGUI(new SchereSteinPapierGUI(null, new BOT(), games.getPlayer()).getFrame());
+				//CardGame.setGUI(new SchereSteinPapierGUI(null, new BOT(), games.getPlayer()).getFrame());
 			}else {
 				ResetNameFeld();
 			}
@@ -256,7 +255,6 @@ public class GamesGUI implements ActionListener {
 		}else if(e.getSource() == btnKartenSpiel) {
 			if(NamesFeld.getText().length() >= 1 && NamesFeld.getText().length() <= 12) {
 				games.getPlayer().setName(NamesFeld.getText());
-				CardGame.getGUI().dispose();
 				CardGame.setGUI(new StartScreenGUI(null).getFrame());
 			}else {
 				ResetNameFeld();

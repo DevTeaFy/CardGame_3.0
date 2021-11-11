@@ -12,6 +12,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
@@ -43,10 +44,11 @@ public class StartScreenGUI implements ActionListener{
 	private JPanel contentPanel1 = new JPanel();
 	private JPanel contentPanel2 = new JPanel();
 	private JPanel contentPanel3 = new JPanel();
+	private JLayeredPane lp = new JLayeredPane();
 	
 	public StartScreenGUI(JFrame lframe) {
 		if(lframe == null) {
-			this.frame =  new JFrame();;
+			this.frame =  new JFrame();
 			this.frame.setSize(1052, 596);
 			int width = CardGame.getGraphicsDevice().getDisplayMode().getWidth();
 			int height = CardGame.getGraphicsDevice().getDisplayMode().getHeight();
@@ -181,13 +183,19 @@ public class StartScreenGUI implements ActionListener{
 		framePanel.add(PanelmainSouth,BorderLayout.SOUTH);
 		framePanel.add(contentPanel,BorderLayout.CENTER);
 		
-		this.frame.add(framePanel,BorderLayout.CENTER);
+		this.lp.add(framePanel,0);
+		this.lp.add(new SettingsGUI().getFrame(),1);
+		this.lp.add(new GameGUI().getFrame(),2);
+		
+		this.frame.add(lp,BorderLayout.CENTER);
 	}
 	
-	public JFrame getFrame() {
-		return frame;
+	public JPanel getFrame() {
+		return this.framePanel;
 	}
-	
+	public JFrame getFRAME() {
+		return this.frame;
+	}
 	public void removeFramePanel(){
 		this.frame.remove(framePanel);
 	}
@@ -201,9 +209,7 @@ public class StartScreenGUI implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == Settings) {
 			CheckPlayBack();
-			CardGame.getGUI().dispose();
-			SettingsGUI gui = new SettingsGUI(null);
-			CardGame.setGUI(gui.getFrame());
+			this.lp.
 			CardGame.getGUI().show();
 		}else if(e.getSource() == PlayGame) {
 			Words.choosenWay.clear();
@@ -211,8 +217,7 @@ public class StartScreenGUI implements ActionListener{
 			Words.choosenWayID.clear();
 			CheckPlayBack();
 			StoppUhr.Run();
-			CardGame.getGUI().dispose();
-			CardGame.setGUI(new GameGUI(null).getFrame());
+			CardGame.setGUI(new GameGUI().getFrame());
 		}else if(e.getSource() == PlayAudioSotry) {
 			SprachAusgabe.PlayGameInAudio();
 		}

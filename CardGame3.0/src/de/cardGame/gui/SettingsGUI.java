@@ -36,7 +36,6 @@ import de.cardGame.utils.words.Words;
 
 public class SettingsGUI implements ActionListener, ChangeListener{
 	
-	private JFrame frame;
 	private JPanel framePanel;
 	private JPanel titelPanel;
 	private JPanel mainEast;
@@ -84,18 +83,8 @@ public class SettingsGUI implements ActionListener, ChangeListener{
 	private String design;
 	private String sprache;
 	
-	public SettingsGUI(JFrame frame) {
-		if(frame == null) {
-			this.frame = new JFrame();
-			this.frame.setSize(1052, 596);
-			int width = CardGame.getGraphicsDevice().getDisplayMode().getWidth();
-			int height = CardGame.getGraphicsDevice().getDisplayMode().getHeight();
-			
-			this.frame.setLocation((int) ((width/2)-(this.frame.getSize().getWidth()/2)), (int) ((height/2)-(this.frame.getSize().getHeight()/2)));
-		}else {
-			CardGame.setGUI(null);
-			this.frame = frame;
-		}
+	public SettingsGUI() {
+		
 		Settings st = CardGame.getSettings();
 		setAudioValue(st.getAudiovalue());
 		setAutoSave(st.isAutoSave());
@@ -104,12 +93,7 @@ public class SettingsGUI implements ActionListener, ChangeListener{
 		setSchriftart(st.getSchriftart());
 		setdesign(st.getDesign());
 		setSprache(st.getLanguage());
-		this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.frame.setLayout(new BorderLayout());
-		this.frame.setResizable(true);
-		this.frame.setAlwaysOnTop(false);
-		this.frame.setTitle(Words.get(WordTypes.Name));
-		this.frame.setIconImage(new IconManager(IconPath.GameIcon).getImage());
+		
 		
 		titelPanel = new JPanel();
 		titelPanel.setBackground(CardGame.BackgroundColor);
@@ -445,12 +429,10 @@ public class SettingsGUI implements ActionListener, ChangeListener{
 		framePanel.add(mainSouth,BorderLayout.SOUTH);
 		framePanel.add(contentPanel,BorderLayout.CENTER);
 		
-		this.frame.add(framePanel);
-		this.frame.setVisible(true);
 	}
 	
-	public JFrame getFrame() {
-		return this.frame;
+	public JPanel getFrame() {
+		return this.framePanel;
 	}
 
 	public int getAudioValue() {
@@ -514,11 +496,9 @@ public class SettingsGUI implements ActionListener, ChangeListener{
 	public void actionPerformed(ActionEvent e) {
 		Settings st = CardGame.getSettings();
 		if(e.getSource() == Titelscreen) {
-			CardGame.getGUI().dispose();
 			CardGame.setGUI(new StartScreenGUI(null).getFrame());
 		}else if(e.getSource() == Speichern) {
 			if(st.isAutoSave()) {
-				CardGame.getGUI().dispose();
 				CardGame.setGUI(new StartScreenGUI(null).getFrame());
 			}else {
 				ProgressBarGUI progressBarGUI = new ProgressBarGUI(Words.get(WordTypes.SavingTitel), 7);
@@ -551,7 +531,6 @@ public class SettingsGUI implements ActionListener, ChangeListener{
 				//KartenSpiel.setGUI(new StartScreenGUI(null).getFrame());
 			}
 		}else if(e.getSource() == PlayDirect) {
-			CardGame.getGUI().dispose();
 			st.setAudiovalue(getAudioValue());
 			st.setAutoplayaftergame(isPlaySotryAfterGameend());
 			st.setAutoSave(isAutoSave());
@@ -560,7 +539,7 @@ public class SettingsGUI implements ActionListener, ChangeListener{
 			st.setSchriftart(getSchriftart());
 			st.setStimmenArt(getStimmenart());
 			st.save();
-			GameGUI gui = new GameGUI(null);
+			GameGUI gui = new GameGUI();
 			if(Words.choosenWayID.size()>=2) {
 				Card c = Card.getCardByID(Words.choosenWayID.get(Words.choosenWayID.size()-2));
 				if(Words.choosenWayAnswer.get(Words.choosenWayAnswer.size()-1) == TextType.A||Words.choosenWayAnswer.get(Words.choosenWayAnswer.size()-1) == TextType.Weiter) { 

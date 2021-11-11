@@ -35,7 +35,6 @@ import de.cardGame.utils.words.Words;
 
 public class GameGUI implements ActionListener {
 
-	private JFrame frame;
 	private JLabel StoryCreator, ProgrammedBy, PlaceHolderProgrammedBy;
 	private JPanel framePanel = new JPanel();
 	private JPanel PanelmainNorth = new JPanel();
@@ -52,26 +51,8 @@ public class GameGUI implements ActionListener {
 	private JMenu Pages, Extras, Help;
 	private JMenuItem Startscreen, Settings, PageBack, ProgrammedByHelp, KeyUse, CardPath, kannstdulesen;
 
-	public GameGUI(JFrame lframe) {
-		if (lframe == null) {
-			this.frame = new JFrame();
-			this.frame.setSize(1052, 596);
-			int width = CardGame.getGraphicsDevice().getDisplayMode().getWidth();
-			int height = CardGame.getGraphicsDevice().getDisplayMode().getHeight();
-
-			this.frame.setLocation((int) ((width / 2) - (this.frame.getSize().getWidth() / 2)),
-					(int) ((height / 2) - (this.frame.getSize().getHeight() / 2)));
-		} else {
-			this.frame = lframe;
-		}
-		this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.frame.setLayout(new BorderLayout());
-		this.frame.setResizable(true);
-		this.frame.setTitle(Words.get(WordTypes.Name));
-		this.frame.setAlwaysOnTop(false);
-		this.frame.setVisible(true);
-		this.frame.getContentPane().setBackground(Color.DARK_GRAY);
-		this.frame.setIconImage(new IconManager(IconPath.GameIcon).getImage());
+	public GameGUI() {
+		
 
 		titelbtn = new JButton();
 		titelbtn.setText(Words.get(WordTypes.Karte) + "1");
@@ -179,7 +160,6 @@ public class GameGUI implements ActionListener {
 		menuBar.add(Help);
 		menuBar.add(kannstdulesen);
 
-		this.frame.setJMenuBar(menuBar);
 
 		StoryCreator = new JLabel();
 		StoryCreator.setText(Words.get(WordTypes.StoryBasedOn));
@@ -345,13 +325,12 @@ public class GameGUI implements ActionListener {
 		framePanel.add(PanelmainSouth, BorderLayout.SOUTH);
 		framePanel.add(contentPanel, BorderLayout.CENTER);
 
-		this.frame.add(framePanel);
 
 		setCardText(0);
 	}
 
-	public JFrame getFrame() {
-		return frame;
+	public JPanel getFrame() {
+		return this.framePanel;
 	}
 
 	public void setCardText(int id) {
@@ -404,7 +383,6 @@ public class GameGUI implements ActionListener {
 			VorlesenCbtn.setVisible(false);
 			Storybtn.setText(C.getText());
 		}
-		this.frame.setVisible(true);
 	}
 
 	private boolean vorgelesenA = false, vorgelesenB = false, vorgelesenC = false;
@@ -428,7 +406,6 @@ public class GameGUI implements ActionListener {
 				Words.choosenWayAnswer.add(TextType.GameOver);
 				Words.choosenWay.add(
 						Words.get(WordTypes.Karte) + (Card.AktiveCardID + 1) + " + " + Words.get(WordTypes.GameOver));
-				CardGame.getGUI().dispose();
 				StartScreenGUI startScreenGUI = new StartScreenGUI(null);
 				StoppUhr.Stopp();
 				SetCardPathinStartScreen(startScreenGUI);
@@ -527,7 +504,6 @@ public class GameGUI implements ActionListener {
 			Words.choosenWayAnswer.add(TextType.GameOver);
 			Words.choosenWay
 					.add(Words.get(WordTypes.Karte) + (Card.AktiveCardID + 1) + " + " + Words.get(WordTypes.GameOver));
-			CardGame.getGUI().dispose();
 			StartScreenGUI startScreenGUI = new StartScreenGUI(null);
 			StoppUhr.Stopp();
 			SetCardPathinStartScreen(startScreenGUI);
@@ -538,9 +514,8 @@ public class GameGUI implements ActionListener {
 			}
 		} else if (e.getSource() == Settings) {
 			StopSprachausgabeAsistent();
-			CardGame.getGUI().dispose();
 			StoppUhr.Stopp();
-			CardGame.setGUI(new SettingsGUI(null).getFrame());
+			CardGame.setGUI(new SettingsGUI().getFrame());
 		} else if (e.getSource() == PageBack) {
 			if (de.cardGame.utils.settings.Settings.Cardback <= 2
 					&& de.cardGame.utils.settings.Settings.Cardback >= 1) {

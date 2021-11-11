@@ -47,36 +47,36 @@ public class StoppUhr {
 			if (std < 10) {
 				if (min < 10) {
 					if (sek < 10) {
-						CardGame.getGUI().setTitle(Words.get(WordTypes.Name)+placeholder+ " 0" + std + ":0" + min + ":0" + sek);
+						CardGame.getFRAME().setTitle(Words.get(WordTypes.Name)+placeholder+ " 0" + std + ":0" + min + ":0" + sek);
 						return Words.get(WordTypes.Name)+placeholder+ " 0" + std + ":0" + min + ":0" + sek;
 					} else {
-						CardGame.getGUI().setTitle(Words.get(WordTypes.Name)+placeholder+ " 0" + std + ":0" + min + ":" + sek);
+						CardGame.getFRAME().setTitle(Words.get(WordTypes.Name)+placeholder+ " 0" + std + ":0" + min + ":" + sek);
 						return Words.get(WordTypes.Name)+placeholder+ " 0" + std + ":0" + min + ":" + sek;
 					}
 				} else {
 					if (sek < 10) {
-						CardGame.getGUI().setTitle(Words.get(WordTypes.Name)+placeholder+ " 0" + std + ":" + min + ":0" + sek);
+						CardGame.getFRAME().setTitle(Words.get(WordTypes.Name)+placeholder+ " 0" + std + ":" + min + ":0" + sek);
 						return Words.get(WordTypes.Name)+placeholder+ " 0" + std + ":" + min + ":0" + sek;
 					} else {
-						CardGame.getGUI().setTitle(Words.get(WordTypes.Name)+placeholder+ " 0" + std + ":" + min + ":" + sek);
+						CardGame.getFRAME().setTitle(Words.get(WordTypes.Name)+placeholder+ " 0" + std + ":" + min + ":" + sek);
 						return Words.get(WordTypes.Name)+placeholder+ " 0" + std + ":" + min + ":" + sek;
 					}
 				}
 			}else {
 				if (min < 10) {
 					if (sek < 10) {
-						CardGame.getGUI().setTitle(Words.get(WordTypes.Name)+placeholder+ " 0" + std + ":0" + min + ":0" + sek);
+						CardGame.getFRAME().setTitle(Words.get(WordTypes.Name)+placeholder+ " 0" + std + ":0" + min + ":0" + sek);
 						return Words.get(WordTypes.Name)+placeholder+ " " + std + ":0" + min + ":0" + sek;
 					} else {
-						CardGame.getGUI().setTitle(Words.get(WordTypes.Name)+placeholder+ " 0" + std + ":0" + min + ":" + sek);
+						CardGame.getFRAME().setTitle(Words.get(WordTypes.Name)+placeholder+ " 0" + std + ":0" + min + ":" + sek);
 						return Words.get(WordTypes.Name)+placeholder+ " " + std + ":0" + min + ":" + sek;
 					}
 				} else {
 					if (sek < 10) {
-						CardGame.getGUI().setTitle(Words.get(WordTypes.Name)+placeholder+ " 0" + std + ":" + min + ":0" + sek);
+						CardGame.getFRAME().setTitle(Words.get(WordTypes.Name)+placeholder+ " 0" + std + ":" + min + ":0" + sek);
 						return Words.get(WordTypes.Name)+placeholder+ " " + std + ":" + min + ":0" + sek;
 					} else {
-						CardGame.getGUI().setTitle(Words.get(WordTypes.Name)+placeholder+ " 0" + std + ":" + min + ":" + sek);
+						CardGame.getFRAME().setTitle(Words.get(WordTypes.Name)+placeholder+ " 0" + std + ":" + min + ":" + sek);
 						return Words.get(WordTypes.Name)+placeholder+ " " + std + ":" + min + ":" + sek;
 					}
 				}

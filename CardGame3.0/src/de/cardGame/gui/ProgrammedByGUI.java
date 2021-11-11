@@ -28,7 +28,6 @@ import de.cardGame.utils.words.Words;
 
 public class ProgrammedByGUI implements ActionListener {
 	
-	private JFrame frame;
 	private JPanel framePanel = new JPanel();
 	private JPanel PanelmainNorth = new JPanel();
 	private JPanel PanelmainEast = new JPanel();
@@ -39,19 +38,6 @@ public class ProgrammedByGUI implements ActionListener {
 	private JButton btnZocken;
 	
 	public ProgrammedByGUI() {
-		this.frame =  new JFrame();
-		this.frame.setSize(Integer.valueOf((int) (CardGame.getGUI().getWidth()/1.5)),Integer.valueOf((int) (CardGame.getGUI().getHeight()/1.5)));
-		int width = CardGame.getGraphicsDevice().getDisplayMode().getWidth();
-		int height = CardGame.getGraphicsDevice().getDisplayMode().getHeight();
-		this.frame.setLocation((int) ((width/2)-(this.frame.getSize().getWidth()/2)), (int) ((height/2)-(this.frame.getSize().getHeight()/2)));
-		this.frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-		this.frame.setLayout(new BorderLayout());
-		this.frame.setResizable(false);
-		this.frame.setTitle(Words.get(WordTypes.Name));
-		this.frame.setAlwaysOnTop(false);
-		this.frame.setVisible(true);
-		this.frame.getContentPane().setBackground(CardGame.BackgroundColor);
-		this.frame.setIconImage(new IconManager(IconPath.GameIcon).getImage());
 		
 		titellbl = new JLabel();
 		titellbl.setText(Words.get(WordTypes.Info));
@@ -140,15 +126,10 @@ public class ProgrammedByGUI implements ActionListener {
 		framePanel.add(PanelmainSouth,BorderLayout.SOUTH);
 		framePanel.add(contentPanel,BorderLayout.CENTER);
 		
-		this.frame.add(framePanel);
 	}
 	
-	public JFrame getFrame() {
-		return frame;
-	}
-
-	public void Close() {
-		this.frame.dispose();
+	public JPanel getFrame() {
+		return this.framePanel;
 	}
 
 	@Override
@@ -156,13 +137,11 @@ public class ProgrammedByGUI implements ActionListener {
 		if(!(e.getSource() == btnZocken)) {
 			return;
 		}
-		this.frame.dispose();
 		Settings.Cardback = 2;
 		GameGUI.StopSprachausgabeAsistent();
 		Words.choosenWayID.add(Card.AktiveCardID);
 		Words.choosenWayAnswer.add(TextType.GameOver);
 		Words.choosenWay.add(Words.get(WordTypes.Karte) + (Card.AktiveCardID + 1) + " + " + Words.get(WordTypes.GameOver));
-		CardGame.getGUI().dispose();
 		StoppUhr.Stopp();
 		CardGame.setGUI(new GamesGUI(false).getFrame());
 		

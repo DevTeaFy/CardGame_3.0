@@ -277,7 +277,6 @@ public class SchereSteinPapierGUI implements ActionListener {
 				if(player.getScore() == GamesGUI.games.getBestOf() || bot.getScore() == GamesGUI.games.getBestOf()) {
 					player.resetScore();
 					bot.resetScore();
-					CardGame.getGUI().dispose();
 					CardGame.setGUI(new GamesGUI(true).getFrame());
 				}
 				

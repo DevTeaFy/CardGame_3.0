@@ -19,7 +19,6 @@ import de.cardGame.utils.words.Words;
 
 public class KeyUseGUI {
 
-	private JFrame frame;
 	private JPanel framePanel = new JPanel();
 	private JPanel PanelmainNorth = new JPanel();
 	private JPanel PanelmainEast = new JPanel();
@@ -29,20 +28,6 @@ public class KeyUseGUI {
 	private JLabel titellbl,AltA,AltB,AltC,AltP,AltE,AltH,Titelscrenn,Settings,Zurück,KartePath;
 	
 	public KeyUseGUI() {
-		this.frame =  new JFrame();
-		this.frame.setSize(Integer.valueOf((int) (CardGame.getGUI().getWidth()/1.5)),Integer.valueOf((int) (CardGame.getGUI().getHeight()/1.5)));
-		int width = CardGame.getGraphicsDevice().getDisplayMode().getWidth();
-		int height = CardGame.getGraphicsDevice().getDisplayMode().getHeight();
-		this.frame.setLocation((int) ((width/2)-(this.frame.getSize().getWidth()/2)), (int) ((height/2)-(this.frame.getSize().getHeight()/2)));
-		this.frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-		this.frame.setLayout(new BorderLayout());
-		this.frame.setResizable(true);
-		this.frame.setTitle(Words.get(WordTypes.Name));
-		this.frame.setAlwaysOnTop(false);
-		this.frame.setVisible(true);
-		this.frame.getContentPane().setBackground(CardGame.BackgroundColor);
-		this.frame.setIconImage(new IconManager(IconPath.GameIcon).getImage());
-		
 		
 		titellbl = new JLabel();
 		titellbl.setText(Words.get(WordTypes.KeyUse));
@@ -188,15 +173,10 @@ public class KeyUseGUI {
 		framePanel.add(PanelmainSouth,BorderLayout.SOUTH);
 		framePanel.add(contentPanel,BorderLayout.CENTER);
 		
-		this.frame.add(framePanel);
 	}
 	
-	public JFrame getFrame() {
-		return frame;
-	}
-	
-	public void Close() {
-		this.frame.dispose();
+	public JPanel getFrame() {
+		return this.framePanel;
 	}
 	
 }

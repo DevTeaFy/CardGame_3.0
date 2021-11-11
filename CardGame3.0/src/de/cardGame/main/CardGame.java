@@ -8,6 +8,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 import de.cardGame.cards.Card;
 import de.cardGame.cards.generate.CardGenDe;
@@ -19,7 +20,8 @@ import de.cardGame.utils.settings.Settings;
 public class CardGame {
 
 	private static Settings st;
-	private static JFrame GUI;
+	private static JPanel GUI;
+	private static JFrame FRAME;
 	public static Color BackgroundColor,BackgroudColorMatch2;
 	private static GraphicsDevice graphicsDevice = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
 	public static ArrayList<Card> cards = new ArrayList<>();
@@ -37,10 +39,11 @@ public class CardGame {
 		timer.schedule(new TimerTask() {
 			@Override
 			public void run() {
-				setGUI(new StartScreenGUI(null).getFrame());
+				StartScreenGUI f = new StartScreenGUI(null);
+				setGUI(f.getFrame());
+				setFRAME(f.getFRAME());
 			}
 		}, 1000);
-		
 		Timer timer2 = new Timer();
 		timer2.schedule(new TimerTask() {
 			@Override
@@ -59,12 +62,12 @@ public class CardGame {
 		return graphicsDevice;
 	}
 
-	public static JFrame getGUI() {
+	public static JPanel getGUI() {
 		return GUI;
 	}
 	
-	public static void setGUI(JFrame gui) {
-		GUI = gui;
+	public static void setGUI(JPanel panel) {
+		GUI = panel;
 	}
 	
 	public static Color setBackgroundColor(boolean IsNew,String Typ) {
@@ -93,6 +96,14 @@ public class CardGame {
 				return Color.RED;
 			}
 		}
+	}
+
+	public static JFrame getFRAME() {
+		return FRAME;
+	}
+
+	public static void setFRAME(JFrame fRAME) {
+		FRAME = fRAME;
 	}
 
 	
