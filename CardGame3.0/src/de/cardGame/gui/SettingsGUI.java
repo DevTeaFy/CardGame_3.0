@@ -35,7 +35,7 @@ import de.cardGame.utils.words.WordTypes;
 import de.cardGame.utils.words.Words;
 
 public class SettingsGUI implements ActionListener, ChangeListener{
-	
+	/*
 	private JFrame frame;
 	private JPanel framePanel;
 	private JPanel titelPanel;
@@ -93,9 +93,11 @@ public class SettingsGUI implements ActionListener, ChangeListener{
 			
 			this.frame.setLocation((int) ((width/2)-(this.frame.getSize().getWidth()/2)), (int) ((height/2)-(this.frame.getSize().getHeight()/2)));
 		}else {
-			CardGame.setGUI(null);
+			//CardGame.setGUI(null);
 			this.frame = frame;
+			this.frame.removeAll();
 		}
+		
 		Settings st = CardGame.getSettings();
 		setAudioValue(st.getAudiovalue());
 		setAutoSave(st.isAutoSave());
@@ -115,6 +117,7 @@ public class SettingsGUI implements ActionListener, ChangeListener{
 		titelPanel.setBackground(CardGame.BackgroundColor);
 		titelPanel.setPreferredSize(new Dimension(10,75));
 		titelPanel.setLayout(new BorderLayout());
+		
 
 		titellbl = new JLabel();
 		titellbl.setText(Words.get(WordTypes.Settings));
@@ -122,7 +125,6 @@ public class SettingsGUI implements ActionListener, ChangeListener{
 		titellbl.setForeground(Color.green);
 		titellbl.setHorizontalAlignment(SwingConstants.CENTER);
 		titelPanel.add(titellbl,BorderLayout.CENTER);
-		
 
 		mainEast = new JPanel();
 		mainEast.setPreferredSize(new Dimension(5,5));
@@ -148,6 +150,7 @@ public class SettingsGUI implements ActionListener, ChangeListener{
 		slidertitellbl.setForeground(new Color(0x06A666));
 		slidertitellbl.setHorizontalAlignment(SwingConstants.CENTER);
 		
+		
 		slider = new JSlider(0,100,CardGame.getSettings().getAudiovalue());
 		slider.setBackground(CardGame.BackgroudColorMatch2);
 		slider.setForeground(new Color(0x06A666));
@@ -168,6 +171,7 @@ public class SettingsGUI implements ActionListener, ChangeListener{
 				setAudioValue(slider.getValue());
 			}
 		});
+
 		
 		sliderbottomlbl = new JLabel();
 		sliderbottomlbl.setPreferredSize(new Dimension(5,60));
@@ -175,6 +179,7 @@ public class SettingsGUI implements ActionListener, ChangeListener{
 		sliderbottomlbl.setFont(new Font(CardGame.getSettings().getSchriftart(), Font.BOLD, 30));
 		sliderbottomlbl.setForeground(new Color(0x06A666));
 		sliderbottomlbl.setHorizontalAlignment(SwingConstants.CENTER);
+		
 		
 		
 		contentPanelleft.add(slidertitellbl,BorderLayout.NORTH);
@@ -186,6 +191,7 @@ public class SettingsGUI implements ActionListener, ChangeListener{
 		contentPanelcenter.setBackground(CardGame.BackgroundColor);
 		contentPanelcenter.setLayout(new GridLayout(6,1,5,5));
 		
+		
 		languagelbl = new JLabel();
 		languagelbl.setPreferredSize(new Dimension(250,30));
 		languagelbl.setText(Words.get(WordTypes.Sprache));
@@ -194,6 +200,7 @@ public class SettingsGUI implements ActionListener, ChangeListener{
 		languagelbl.setVerticalAlignment(SwingConstants.CENTER);
 		languagelbl.setHorizontalAlignment(SwingConstants.LEFT);
 		languagelbl.setBorder(BorderFactory.createLineBorder(CardGame.BackgroudColorMatch2,5));
+		
 		
 		
 		langugagecbb = new JComboBox<>(CardGame.getSettings().getLanguages(CardGame.getSettings().getLanguage()));
@@ -209,11 +216,13 @@ public class SettingsGUI implements ActionListener, ChangeListener{
 			langugagecbb.setSelectedIndex(0);
 		}
 		
+		
 		contentPanelcenter1 = new JPanel();
 		contentPanelcenter1.setBackground(CardGame.BackgroudColorMatch2);
 		contentPanelcenter1.setLayout(new BorderLayout());
 		contentPanelcenter1.add(languagelbl,BorderLayout.WEST);
 		contentPanelcenter1.add(langugagecbb,BorderLayout.CENTER);
+		
 		
 		
 		
@@ -230,6 +239,7 @@ public class SettingsGUI implements ActionListener, ChangeListener{
 		schriftartlbl.setHorizontalAlignment(SwingConstants.LEFT);
 		schriftartlbl.setIcon(new IconManager(IconPath.Fontx64).getImageIcon());
 		schriftartlbl.setBorder(BorderFactory.createLineBorder(CardGame.BackgroudColorMatch2,5));
+		
 		
 		schriftartcbb = new JComboBox<>(CardGame.getSettings().getSchriftArten());
 		schriftartcbb.setBackground(CardGame.BackgroudColorMatch2);
@@ -444,7 +454,7 @@ public class SettingsGUI implements ActionListener, ChangeListener{
 		framePanel.add(mainWest,BorderLayout.WEST);
 		framePanel.add(mainSouth,BorderLayout.SOUTH);
 		framePanel.add(contentPanel,BorderLayout.CENTER);
-		
+
 		this.frame.add(framePanel);
 		this.frame.setVisible(true);
 	}
@@ -708,6 +718,6 @@ public class SettingsGUI implements ActionListener, ChangeListener{
 		}else if(getdesign().equalsIgnoreCase("Hell")) {
 			Hell.setSelected(true);
 		}
-	}
+	}*/
 
 }

@@ -24,25 +24,8 @@ import de.cardGame.utils.words.WordTypes;
 import de.cardGame.utils.words.Words;
 
 public class StartScreenGUI implements ActionListener{
-	
-	private JFrame frame;
-	private JLabel titellbl;
-	private JLabel subtitellbl;
-	private JLabel TimePlayed;
-	private JLabel NumberOfCards;
-	private JLabel CardPath;
-	private JButton Settings;
-	private JButton PlayAudioSotry;
-	private JButton PlayGame;
-	private JPanel framePanel = new JPanel();
-	private JPanel titelPanel = new JPanel();
-	private JPanel PanelmainEast = new JPanel();
-	private JPanel PanelmainWest = new JPanel();
-	private JPanel PanelmainSouth = new JPanel();
-	private JPanel contentPanel = new JPanel();
-	private JPanel contentPanel1 = new JPanel();
-	private JPanel contentPanel2 = new JPanel();
-	private JPanel contentPanel3 = new JPanel();
+	/*
+	private JFrame frame;8
 	
 	public StartScreenGUI(JFrame lframe) {
 		if(lframe == null) {
@@ -196,16 +179,19 @@ public class StartScreenGUI implements ActionListener{
 	}
 
 
-	@SuppressWarnings("deprecation")
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == Settings) {
 			CheckPlayBack();
-			CardGame.getGUI().dispose();
-			SettingsGUI gui = new SettingsGUI(null);
-			CardGame.setGUI(gui.getFrame());
-			CardGame.getGUI().show();
-		}else if(e.getSource() == PlayGame) {
+			//CardGame.getGUI().dispose();
+			System.out.print(this.frame.getSize());
+			SettingsGUI gui = new SettingsGUI(this.frame);
+			JFrame str = CardGame.getGUI();
+			str = gui.getFrame();
+			str.show();
+			//CardGame.setGUI(gui.getFrame());
+			//CardGame.getGUI().show();
+		} else if(e.getSource() == PlayGame) {
 			Words.choosenWay.clear();
 			Words.choosenWayAnswer.clear();
 			Words.choosenWayID.clear();
@@ -213,7 +199,7 @@ public class StartScreenGUI implements ActionListener{
 			StoppUhr.Run();
 			CardGame.getGUI().dispose();
 			CardGame.setGUI(new GameGUI(null).getFrame());
-		}else if(e.getSource() == PlayAudioSotry) {
+		} else if(e.getSource() == PlayAudioSotry) {
 			SprachAusgabe.PlayGameInAudio();
 		}
 		
@@ -235,4 +221,5 @@ public class StartScreenGUI implements ActionListener{
 	public void setPlayAudioSotryVisible(boolean value) {
 		PlayAudioSotry.setVisible(value);
 	}
+	*/
 }

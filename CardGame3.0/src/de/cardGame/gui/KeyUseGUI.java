@@ -18,7 +18,7 @@ import de.cardGame.utils.words.WordTypes;
 import de.cardGame.utils.words.Words;
 
 public class KeyUseGUI {
-
+	/*
 	private JFrame frame;
 	private JPanel framePanel = new JPanel();
 	private JPanel PanelmainNorth = new JPanel();
@@ -198,5 +198,5 @@ public class KeyUseGUI {
 	public void Close() {
 		this.frame.dispose();
 	}
-	
+	*/
 }
