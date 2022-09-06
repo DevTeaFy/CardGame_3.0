@@ -63,6 +63,8 @@ public enum WordTypes {
 	colleague("Kollege","colleague"),
 	marrythem("heirate sie","marry them"),
 	Roulette("Roulette","roulette"),
+	two("2","2"),
+	Card15Fehler("Auf dieser Karte gibt es einen inhaltlichen Fehler. Finde heraus, wie viele Personen verschwinden, ohne dass man erfährt, was mit ihnen passiert ist. Gib die gesuchte Zahl hier ein:","There is a content-related mistake on this card. Find out how many persons just vanish into thin air without the reader getting to know what has happened to them. Type in the correct number here:"),
 	Card26Fehler("Hören Sie der Leserin zu und finden Sie die beiden Wörter, die nicht zum geschriebenen Text passen.","Listen to the female reader and find the two words that do not match the written text."),
 	Card43und50Fehler("Auf dieser Karte gibt es einen inhaltlichen Fehler. Finde das Wort, das durch ein anderes Wort ersetzt werden muss. Gib das neue Wort hier ein:","There is a content-related mistake on this card. Find the word that has to be replaced. Type in the new word here:"),
 	Card64Fehler("Hören Sie der Leserin zu und finden Sie das eine Wort aus dem Text, das sie nicht laut vorliest.","Listen to the female reader and find the one word from the text that she does not read out loud."),

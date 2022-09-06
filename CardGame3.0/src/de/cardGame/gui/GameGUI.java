@@ -357,7 +357,7 @@ public class GameGUI implements ActionListener {
 	public void setCardText(int id) {
 		Card C = CardGame.cards.get(id);
 		Card.AktiveCardID = id;
-		if(id == 43 || id == 50 || (id == 26 && !Card.German && CardGame.getSettings().getStimmenArt().equalsIgnoreCase("W")) || (id == 64 && !Card.German && CardGame.getSettings().getStimmenArt().equalsIgnoreCase("W")) || (id == 45 && Card.German  && CardGame.getSettings().getStimmenArt().equalsIgnoreCase("M")) || ((id == 11 || id == 21 || id == 35 || id == 39 || id == 65) && !Card.German && CardGame.getSettings().getStimmenArt().equalsIgnoreCase("M")) || (id == 13 && !Card.German && CardGame.getSettings().getStimmenArt().equalsIgnoreCase("M"))) {
+		if(id == 15 || id == 43 || id == 50 || (id == 26 && !Card.German && CardGame.getSettings().getStimmenArt().equalsIgnoreCase("W")) || (id == 64 && !Card.German && CardGame.getSettings().getStimmenArt().equalsIgnoreCase("W")) || (id == 45 && Card.German  && CardGame.getSettings().getStimmenArt().equalsIgnoreCase("M")) || ((id == 11 || id == 21 || id == 35 || id == 39 || id == 65) && !Card.German && CardGame.getSettings().getStimmenArt().equalsIgnoreCase("M")) || (id == 13 && !Card.German && CardGame.getSettings().getStimmenArt().equalsIgnoreCase("M"))) {
 			kannstdulesen.setVisible(true);
 		}else {
 			kannstdulesen.setVisible(false);
@@ -564,6 +564,7 @@ public class GameGUI implements ActionListener {
 		} else if (e.getSource() == KeyUse) {
 			new KeyUseGUI();
 		}else if(e.getSource() == kannstdulesen) {
+			try {
 			if(Card.AktiveCardID == 43 || Card.AktiveCardID == 50) {
 				String intput = JOptionPane.showInputDialog(Words.get(WordTypes.Card43und50Fehler));
 				if(intput.equalsIgnoreCase(Words.get(WordTypes.Roulette))) {
@@ -612,7 +613,19 @@ public class GameGUI implements ActionListener {
 					JOptionPane.showMessageDialog(null, Words.get(WordTypes.Falsch),Words.get(WordTypes.Card13Fehler),JOptionPane.ERROR_MESSAGE);
 				}
 			}
+			if(Card.AktiveCardID == 15) {
+				String intput = JOptionPane.showInputDialog(Words.get(WordTypes.Card15Fehler));
+				if(intput.equalsIgnoreCase(Words.get(WordTypes.two))) {
+					JOptionPane.showMessageDialog(null, Words.get(WordTypes.Richtig),Words.get(WordTypes.Card15Fehler),JOptionPane.INFORMATION_MESSAGE);
+				}else {
+					JOptionPane.showMessageDialog(null, Words.get(WordTypes.Falsch),Words.get(WordTypes.Card15Fehler),JOptionPane.ERROR_MESSAGE);
+				}
+			}
+			}catch (NullPointerException nullPointerException) {
+				
+			}
 		}
+		
 	}
 
 	private void SetCardPathinStartScreen(StartScreenGUI startScreenGUI) {
